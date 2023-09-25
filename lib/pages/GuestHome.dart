@@ -178,16 +178,73 @@
 //     );
 //   }
 // }
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:animate_gradient/animate_gradient.dart';
-// import 'package:flutter_gradient/flutter_gradient.dart';
-// import 'package:flutter_animation_progress/flutter_animation_progress.dart';
+import 'package:flutter_html/flutter_html.dart';
+import 'package:krc/pages/LoginPage.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:webview_flutter/webview_flutter.dart';
+// import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 
 class GuestHome extends StatefulWidget {
   @override
   _GuestHomeState createState() => _GuestHomeState();
 }
+
+const HtmlData = r""" <!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+</head>
+<body>
+<a id='twitter' class="twitter-timeline" href="https://twitter.com/KnowledgeResou5?ref_src=twsrc%5Etfw">Tweets by KnowledgeResou5</a> <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+</body>
+</html> """;
+
+final controller = WebViewController()
+  ..setBackgroundColor(const Color(0x00000000))
+  ..setJavaScriptMode(JavaScriptMode.unrestricted)
+  ..setNavigationDelegate(
+    NavigationDelegate(
+      onProgress: (int progress) {
+        debugPrint('WebView is loading (progress : $progress%)');
+      },
+      onPageStarted: (String url) {
+        debugPrint('Page started loading: $url');
+      },
+      onPageFinished: (String url) {
+        debugPrint('Page finished loading: $url');
+      },
+      onWebResourceError: (WebResourceError error) {
+        debugPrint('''
+Page resource error:
+  code: ${error.errorCode}
+  description: ${error.description}
+  errorType: ${error.errorType}
+  isForMainFrame: ${error.isForMainFrame}
+          ''');
+      },
+      onNavigationRequest: (NavigationRequest request) {
+        if (request.url.startsWith('https://www.youtube.com/')) {
+          debugPrint('blocking navigation to ${request.url}');
+          return NavigationDecision.prevent;
+        }
+        debugPrint('allowing navigation to ${request.url}');
+        return NavigationDecision.navigate;
+      },
+      onUrlChange: (UrlChange change) {
+        debugPrint('url change to ${change.url}');
+      },
+    ),
+  )
+    ..loadRequest(Uri.parse('https://piyushh69.github.io/ideal-doodle-embed-tweet/')
+  );
 
 class _GuestHomeState extends State<GuestHome> {
   // Create a controller for the ListView
@@ -395,7 +452,6 @@ class _GuestHomeState extends State<GuestHome> {
     ),
   ];
 
-
   @override
   void initState() {
     super.initState();
@@ -451,24 +507,34 @@ class _GuestHomeState extends State<GuestHome> {
             ),
           ),
         ),
-        leading: Icon(
-          Icons.menu,
-          color: Color(0xff212435),
-          size: 24,
+        leading: Builder(
+          builder: (BuildContext context) {
+            return IconButton(
+              icon: const Icon(Icons.menu),
+              onPressed: () {
+                Scaffold.of(context).openDrawer();
+              },
+              // onPressed: () {
+              // },
+              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
+            );
+          },
         ),
         actions: [
           Padding(
             padding: const EdgeInsets.fromLTRB(8.0, 0, 10, 0),
             child: IconButton(
               icon: const Icon(Icons.account_circle, size: 24),
-              tooltip: 'Open shopping cart',
-              onPressed: () {
-                // handle the press
+              tooltip: 'Account',
+              onPressed: () async {
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => LoginScreen()));
               },
             ),
           ),
         ],
       ),
+      drawer: Drawer(),
       // body: Column(
       //   mainAxisAlignment: MainAxisAlignment.start,
       //   crossAxisAlignment: CrossAxisAlignment.center,
@@ -516,16 +582,16 @@ class _GuestHomeState extends State<GuestHome> {
                 padding: EdgeInsets.fromLTRB(10, 10, 10, 0),
                 child: Container(
                   decoration: BoxDecoration(
-                    color: Color(0x6F5D5353),
+                    color: Color(0x7EFFFFFF),
                     shape: BoxShape.rectangle,
                     borderRadius: BorderRadius.circular(10.0),
-                    boxShadow: [
-                      BoxShadow(
-                          color: Colors.grey.withOpacity(0.4),
-                          offset: Offset(6, 18),
-                          blurRadius: 50,
-                          spreadRadius: -15)
-                    ],
+                    // boxShadow: [
+                    //   BoxShadow(
+                    //       color: Colors.grey.withOpacity(0.6),
+                    //       offset: Offset(18, 25),
+                    //       blurRadius: 50,
+                    //       spreadRadius: -1)
+                    // ],
                     border: Border.all(color: Color(0x4d9e9e9e), width: 1),
                   ),
                   child: Text(
@@ -536,7 +602,7 @@ class _GuestHomeState extends State<GuestHome> {
                     style: TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
-                      fontSize: 14,
+                      fontSize: 16,
                       color: Color(0xff000000),
                     ),
                   ),
@@ -567,6 +633,133 @@ class _GuestHomeState extends State<GuestHome> {
                   },
                 ),
               ),
+              Container(
+                margin: EdgeInsets.all(10),
+                padding: EdgeInsets.all(10),
+                width: MediaQuery.of(context).size.width * 0.95,
+                // height: ,
+                decoration: BoxDecoration(
+                  color: Color(0xffffffff),
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(color: Color(0x4d9e9e9e), width: 1),
+                ),
+                child: Container(
+                  child: Row(
+                    // mainAxisAlignment: MainAxisAlignment.start,
+                    // crossAxisAlignment: CrossAxisAlignment.center,
+                    // mainAxisSize: MainAxisSize.max,
+                    children: [
+                      Padding(
+                          padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
+                          // child: Text(
+                          //   "Tweets from @KnowIedgeResou5",
+                          //   textAlign: TextAlign.start,
+                          //   overflow: TextOverflow.clip,
+                          //   style: TextStyle(
+                          //     fontWeight: FontWeight.w800,
+                          //     fontStyle: FontStyle.normal,
+                          //     fontSize: 14,
+                          //     color: Color(0xff000000),
+                          //   ),
+                          // ),
+                          child: RichText(
+                              text: TextSpan(children: [
+                            TextSpan(
+                                style: TextStyle(
+                                  fontWeight: FontWeight.w800,
+                                  fontStyle: FontStyle.normal,
+                                  fontSize: 14,
+                                  color: Color(0xff000000),
+                                  decoration: TextDecoration.underline,
+                                ),
+                                text: "Tweets from @KnowIedgeResou5",
+                                recognizer: TapGestureRecognizer()
+                                  ..onTap = () async {
+                                    Uri url = Uri.parse(
+                                        "https://twitter.com/KnowledgeResou5");
+                                    if (!await launchUrl(url)) {
+                                      throw 'Could not launch';
+                                    }
+                                  }),
+                          ]))),
+                      Padding(
+                        padding: const EdgeInsets.fromLTRB(15, 0, 0, 0),
+                        child: MaterialButton(
+                          onPressed: () async {
+                            final Uri url = Uri.parse(
+                                'https://twitter.com/intent/follow?screen_name=KnowledgeResou5&ref_src=twsrc%5Etfw%7Ctwcamp%5Eembeddedtimeline%7Ctwterm%5Escreen-name%3AKnowledgeResou5%7Ctwcon%5Es2');
+                            if (!await launchUrl(url)) {
+                              throw Exception('Could not launch');
+                            }
+                          },
+                          color: Color(0xff000000),
+                          elevation: 5,
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            side:
+                                BorderSide(color: Color(0xff808080), width: 1),
+                          ),
+                          padding:
+                              EdgeInsets.symmetric(horizontal: 16, vertical: 8),
+                          child: Text(
+                            "Follow on Twitter",
+                            style: TextStyle(
+                              fontSize: 12,
+                              fontWeight: FontWeight.w800,
+                              fontStyle: FontStyle.normal,
+                            ),
+                          ),
+                          textColor: Color(0xffffffff),
+                          height: 35,
+                          minWidth: 40,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // Padding(
+              //   padding:EdgeInsets.symmetric(horizontal:10.0),
+              //   child:Container(
+              //     height:1.0,
+              //     // width:130.0,
+              //     decoration: BoxDecoration(
+              //       color: Color(0xff000000),
+              //       shape: BoxShape.rectangle,
+              //     ),
+              //   ),
+              // ),
+              Container(
+                height: 450,
+
+                margin: EdgeInsets.all(0),
+                padding: EdgeInsets.all(10),
+                width: MediaQuery.of(context).size.width * 0.95,
+                // height: ,
+                decoration: BoxDecoration(
+                  // color: Color(0xffffffff),
+                  shape: BoxShape.rectangle,
+                  borderRadius: BorderRadius.circular(10.0),
+                  border: Border.all(color: Color(0x4d9e9e9e), width: 1),
+                ),
+                // child: WebViewPlus(
+                //   javascriptMode: JavascriptMode.unrestricted,
+                //   onWebViewCreated: (controller) {
+                //     controller.loadUrl('assets/twitter.html');
+                //   },
+                child: WebViewWidget(
+                  controller: controller,
+                ),
+              )
+              // ),
+              // child: SingleChildScrollView(
+              //   child: Html(
+              //     data: HtmlData
+              //
+              //   ),
+              // ),
+              // ),
             ],
           ),
         ),
