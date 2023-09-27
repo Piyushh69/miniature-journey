@@ -45,6 +45,7 @@ dependencies:
   flutter_html: any
 #  flutter_gradient: any
 #  flutter_animation_progress_bar: any
+  hidden_drawer_menu: ^3.0.1
 
 dev_dependencies:
   flutter_test:

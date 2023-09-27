@@ -186,6 +186,7 @@ import 'package:flutter_html/flutter_html.dart';
 import 'package:krc/pages/LoginPage.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
+import 'package:krc/pages/NavigationDrawer.dart';
 // import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 
 class GuestHome extends StatefulWidget {
@@ -511,11 +512,12 @@ class _GuestHomeState extends State<GuestHome> {
           builder: (BuildContext context) {
             return IconButton(
               icon: const Icon(Icons.menu),
-              onPressed: () {
-                Scaffold.of(context).openDrawer();
-              },
-              // onPressed: () {
+              // onPressed: () async {
+              //   Navigator.push(context,
+              //       MaterialPageRoute(builder: (context) => NavigationDrawer()));
               // },
+              onPressed: () {
+              },
               tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
             );
           },

@@ -5,6 +5,7 @@ import 'package:krc/pages/webViewGuest.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 // import 'package:webview_flutter/src/webview_controller.dart';
 import 'package:krc/pages/webViewGuest.dart';
+import 'package:krc/pages/NavigationDrawer.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      routes:{
+      routes: {
         // '/':(context) => MyHomePage(),
         // '/webViewContainer':(context) => webViewContainer()
       },
@@ -27,15 +28,8 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blueGrey),
         useMaterial3: true,
       ),
+      // home: LoginScreen(),
       home: LoginScreen(),
-    );
-  }
-}
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      body: Text(""),
     );
   }
 }
