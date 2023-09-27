@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:hidden_drawer_menu/hidden_drawer_menu.dart';
 import 'package:krc/main.dart';
+import 'package:krc/pages/GuestHome.dart';
 
 class HiddenDrawer extends StatefulWidget {
   const HiddenDrawer({super.key});
@@ -22,8 +23,8 @@ class _NavigationDrawerState extends State<HiddenDrawer> {
           name: 'Homepage',
           baseStyle: TextStyle(),
           selectedStyle: TextStyle(),
-        ),
-        MyApp(),
+    ),
+        GuestHome(),
       ),
     ];
   }

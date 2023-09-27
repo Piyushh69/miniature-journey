@@ -187,6 +187,8 @@ import 'package:krc/pages/LoginPage.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:webview_flutter/webview_flutter.dart';
 import 'package:krc/pages/NavigationDrawer.dart';
+// import 'flutterViz_drawerItem_model.dart';
+// import 'flutterViz_drawer.dart';
 // import 'package:webview_flutter_plus/webview_flutter_plus.dart';
 
 class GuestHome extends StatefulWidget {
@@ -244,8 +246,8 @@ Page resource error:
       },
     ),
   )
-    ..loadRequest(Uri.parse('https://piyushh69.github.io/ideal-doodle-embed-tweet/')
-  );
+  ..loadRequest(
+      Uri.parse('https://piyushh69.github.io/ideal-doodle-embed-tweet/'));
 
 class _GuestHomeState extends State<GuestHome> {
   // Create a controller for the ListView
@@ -508,19 +510,10 @@ class _GuestHomeState extends State<GuestHome> {
             ),
           ),
         ),
-        leading: Builder(
-          builder: (BuildContext context) {
-            return IconButton(
-              icon: const Icon(Icons.menu),
-              // onPressed: () async {
-              //   Navigator.push(context,
-              //       MaterialPageRoute(builder: (context) => NavigationDrawer()));
-              // },
-              onPressed: () {
-              },
-              tooltip: MaterialLocalizations.of(context).openAppDrawerTooltip,
-            );
-          },
+        leading: Icon(
+          Icons.menu,
+          color: Color(0xff212435),
+          size: 24,
         ),
         actions: [
           Padding(
@@ -536,7 +529,38 @@ class _GuestHomeState extends State<GuestHome> {
           ),
         ],
       ),
-      drawer: Drawer(),
+      drawer: Drawer(
+        child: ListView(
+          // Important: Remove any padding from the ListView.
+          padding: EdgeInsets.zero,
+          children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text('Drawer Header'),
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.home,
+              ),
+              title: const Text('Page 1'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              leading: Icon(
+                Icons.train,
+              ),
+              title: const Text('Page 2'),
+              onTap: () {
+                Navigator.pop(context);
+              },
+            ),
+          ],
+        ),
+      ),
       // body: Column(
       //   mainAxisAlignment: MainAxisAlignment.start,
       //   crossAxisAlignment: CrossAxisAlignment.center,
