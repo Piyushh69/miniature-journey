@@ -228,6 +228,7 @@ class _MyDrawerState extends State<MyDrawer> {
                 ),
                 ListTile(
                   onTap: () {
+                    Navigator.pop(context);
                     Navigator.push(context,
                     MaterialPageRoute(
                         builder: (BuildContext context) => OpeningHours()));
