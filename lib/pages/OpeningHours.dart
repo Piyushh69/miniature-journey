@@ -66,22 +66,22 @@ class _OpeningHoursState extends State<OpeningHours> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Card(
+                      elevation: 18.0,
+                      clipBehavior: Clip.antiAlias,
                       child: ClipRRect(
                         borderRadius: BorderRadius.circular(10),
-                        child: Image(
+                        child: const Image(
                           image: AssetImage("assets/images/OpenLib.jpg"),
                           fit: BoxFit.fill,
                         ),
                       ),
-                      elevation: 18.0,
-                      clipBehavior: Clip.antiAlias,
                     ),
                     // const Spacer(),
                     SizedBox(
                       // width: 260,
                       child: Column(
                         children: [
-                          Row(
+                          const Row(
                             crossAxisAlignment: CrossAxisAlignment.center,
                             mainAxisAlignment: MainAxisAlignment.center,
                             children: [
@@ -105,21 +105,23 @@ class _OpeningHoursState extends State<OpeningHours> {
                               ),
                             ],
                           ),
-                          SizedBox(height: 16),
+                          const SizedBox(height: 16),
                           Column(
                             children: [
                               Padding(
                                 padding:
                                     const EdgeInsets.symmetric(horizontal: 32),
                                 child: Card(
+                                  elevation: 18.0,
+                                  clipBehavior: Clip.antiAlias,
                                   child: Container(
                                     // height: 50,
                                     // width: 300,
                                     decoration: BoxDecoration(
-                                        color: Color(0xff851313),
+                                        color: const Color(0xff851313),
                                         border: Border.all(color: Colors.white30),
                                         borderRadius: BorderRadius.circular(10)),
-                                    child: Text(
+                                    child: const Text(
                                       " MONDAY - SATURDAY ",
                                       style: TextStyle(
                                         color: Colors.white,
@@ -130,8 +132,6 @@ class _OpeningHoursState extends State<OpeningHours> {
                                       ),
                                     ),
                                   ),
-                                  elevation: 18.0,
-                                  clipBehavior: Clip.antiAlias,
                                 ),
                               ),
                               Row(
@@ -140,14 +140,16 @@ class _OpeningHoursState extends State<OpeningHours> {
                                     // padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 69),
                                     padding: const EdgeInsets.fromLTRB(65,10,5,0),
                                     child: Card(
+                                      elevation: 18.0,
+                                      clipBehavior: Clip.antiAlias,
                                       child: Container(
                                         // height: 50,
                                         // width: 300,
                                         decoration: BoxDecoration(
-                                            color: Color(0xFFB39DDB),
+                                            color: const Color(0xff851313),
                                             border: Border.all(color: Colors.white30),
                                             borderRadius: BorderRadius.circular(10)),
-                                        child: Text(
+                                        child: const Text(
                                           " B1 ",
                                           style: TextStyle(
                                             color: Colors.white,
@@ -158,21 +160,21 @@ class _OpeningHoursState extends State<OpeningHours> {
                                           ),
                                         ),
                                       ),
-                                      elevation: 18.0,
-                                      clipBehavior: Clip.antiAlias,
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(0,10,0,0),
                                     child: Card(
+                                      elevation: 18.0,
+                                      clipBehavior: Clip.antiAlias,
                                       child: Container(
                                         // height: 50,
                                         // width: 300,
                                         decoration: BoxDecoration(
-                                            color: Colors.deepPurple,
+                                            color: const Color(0xFFF3B30D),
                                             border: Border.all(color: Colors.white30),
                                             borderRadius: BorderRadius.circular(10)),
-                                        child: Text(
+                                        child: const Text(
                                           " 7:00 AM - 10:00 PM ",
                                           style: TextStyle(
                                             color: Colors.white,
@@ -183,8 +185,6 @@ class _OpeningHoursState extends State<OpeningHours> {
                                           ),
                                         ),
                                       ),
-                                      elevation: 18.0,
-                                      clipBehavior: Clip.antiAlias,
                                     ),
 
                                   ),
@@ -196,15 +196,17 @@ class _OpeningHoursState extends State<OpeningHours> {
                                     // padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 69),
                                     padding: const EdgeInsets.fromLTRB(65,10,5,0),
                                     child: Card(
+                                      elevation: 18.0,
+                                      clipBehavior: Clip.antiAlias,
                                       child: Container(
                                         // height: 50,
                                         // width: 300,
                                         decoration: BoxDecoration(
-                                            color: Color(0xFFB39DDB),
+                                            color: const Color(0xff851313),
                                             border: Border.all(color: Colors.white30),
                                             borderRadius: BorderRadius.circular(10)),
-                                        child: Text(
-                                          " B1 ",
+                                        child: const Text(
+                                          " C3 ",
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 22,
@@ -214,21 +216,21 @@ class _OpeningHoursState extends State<OpeningHours> {
                                           ),
                                         ),
                                       ),
-                                      elevation: 18.0,
-                                      clipBehavior: Clip.antiAlias,
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(0,10,0,0),
                                     child: Card(
+                                      elevation: 18.0,
+                                      clipBehavior: Clip.antiAlias,
                                       child: Container(
                                         // height: 50,
                                         // width: 300,
                                         decoration: BoxDecoration(
-                                            color: Colors.deepPurple,
+                                            color: const Color(0xFFF3B30D),
                                             border: Border.all(color: Colors.white30),
                                             borderRadius: BorderRadius.circular(10)),
-                                        child: Text(
+                                        child: const Text(
                                           " 7:00 AM - 10:00 PM ",
                                           style: TextStyle(
                                             color: Colors.white,
@@ -239,8 +241,6 @@ class _OpeningHoursState extends State<OpeningHours> {
                                           ),
                                         ),
                                       ),
-                                      elevation: 18.0,
-                                      clipBehavior: Clip.antiAlias,
                                     ),
 
                                   ),
@@ -252,15 +252,17 @@ class _OpeningHoursState extends State<OpeningHours> {
                                     // padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 69),
                                     padding: const EdgeInsets.fromLTRB(65,10,5,0),
                                     child: Card(
+                                      elevation: 18.0,
+                                      clipBehavior: Clip.antiAlias,
                                       child: Container(
                                         // height: 50,
                                         // width: 300,
                                         decoration: BoxDecoration(
-                                            color: Color(0xFFB39DDB),
+                                            color: const Color(0xff851313),
                                             border: Border.all(color: Colors.white30),
                                             borderRadius: BorderRadius.circular(10)),
-                                        child: Text(
-                                          " B1 ",
+                                        child: const Text(
+                                          " D5 ",
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 22,
@@ -270,21 +272,21 @@ class _OpeningHoursState extends State<OpeningHours> {
                                           ),
                                         ),
                                       ),
-                                      elevation: 18.0,
-                                      clipBehavior: Clip.antiAlias,
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(0,10,0,0),
                                     child: Card(
+                                      elevation: 18.0,
+                                      clipBehavior: Clip.antiAlias,
                                       child: Container(
                                         // height: 50,
                                         // width: 300,
                                         decoration: BoxDecoration(
-                                            color: Colors.deepPurple,
+                                            color: const Color(0xFFF3B30D),
                                             border: Border.all(color: Colors.white30),
                                             borderRadius: BorderRadius.circular(10)),
-                                        child: Text(
+                                        child: const Text(
                                           " 7:00 AM - 10:00 PM ",
                                           style: TextStyle(
                                             color: Colors.white,
@@ -295,8 +297,6 @@ class _OpeningHoursState extends State<OpeningHours> {
                                           ),
                                         ),
                                       ),
-                                      elevation: 18.0,
-                                      clipBehavior: Clip.antiAlias,
                                     ),
 
                                   ),
@@ -308,15 +308,17 @@ class _OpeningHoursState extends State<OpeningHours> {
                                     // padding: const EdgeInsets.symmetric(vertical: 10, horizontal: 69),
                                     padding: const EdgeInsets.fromLTRB(65,10,5,0),
                                     child: Card(
+                                      elevation: 18.0,
+                                      clipBehavior: Clip.antiAlias,
                                       child: Container(
                                         // height: 50,
                                         // width: 300,
                                         decoration: BoxDecoration(
-                                            color: Color(0xFFB39DDB),
+                                            color: const Color(0xff851313),
                                             border: Border.all(color: Colors.white30),
                                             borderRadius: BorderRadius.circular(10)),
-                                        child: Text(
-                                          " B1 ",
+                                        child: const Text(
+                                          " All ",
                                           style: TextStyle(
                                             color: Colors.white,
                                             fontSize: 22,
@@ -326,33 +328,35 @@ class _OpeningHoursState extends State<OpeningHours> {
                                           ),
                                         ),
                                       ),
-                                      elevation: 18.0,
-                                      clipBehavior: Clip.antiAlias,
                                     ),
                                   ),
                                   Padding(
                                     padding: const EdgeInsets.fromLTRB(0,10,0,0),
                                     child: Card(
+                                      elevation: 18.0,
+                                      clipBehavior: Clip.antiAlias,
                                       child: Container(
                                         // height: 50,
                                         // width: 300,
                                         decoration: BoxDecoration(
-                                            color: Colors.deepPurple,
+                                            color: const Color(0xFFF3B30D),
                                             border: Border.all(color: Colors.white30),
                                             borderRadius: BorderRadius.circular(10)),
                                         child: Text(
                                           " 7:00 AM - 10:00 PM ",
                                           style: TextStyle(
-                                            color: Colors.white,
+                                            // color: Colors.white,
                                             fontSize: 22,
                                             fontWeight: FontWeight.w500,
                                             fontFamily: "Poppins",
                                             height: 1.2,
+                                            foreground: Paint()
+                                              ..style = PaintingStyle.stroke
+                                              ..strokeWidth = 1.5
+                                              ..color = Colors.red,
                                           ),
                                         ),
                                       ),
-                                      elevation: 18.0,
-                                      clipBehavior: Clip.antiAlias,
                                     ),
 
                                   ),
