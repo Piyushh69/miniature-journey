@@ -491,10 +491,11 @@ class _GuestHomeState extends State<GuestHome> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFDBFFF4),
+      drawer: MyDrawer(),
       appBar: AppBar(
         elevation: 0,
         centerTitle: false,
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
         backgroundColor: Color(0xffffff),
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.zero,
@@ -510,11 +511,11 @@ class _GuestHomeState extends State<GuestHome> {
             ),
           ),
         ),
-        leading: Icon(
-          Icons.menu,
-          color: Color(0xff212435),
-          size: 24,
-        ),
+        // leading: Icon(
+        //   Icons.menu,
+        //   color: Color(0xff212435),
+        //   size: 24,
+        // ),
         actions: [
           Padding(
             padding: const EdgeInsets.fromLTRB(8.0, 0, 10, 0),
@@ -529,38 +530,37 @@ class _GuestHomeState extends State<GuestHome> {
           ),
         ],
       ),
-      drawer: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: Colors.blue,
-              ),
-              child: Text('Drawer Header'),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.home,
-              ),
-              title: const Text('Page 1'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.train,
-              ),
-              title: const Text('Page 2'),
-              onTap: () {
-                Navigator.pop(context);
-              },
-            ),
-          ],
-        ),
-      ),
+      //   child: ListView(
+      //     // Important: Remove any padding from the ListView.
+      //     padding: EdgeInsets.zero,
+      //     children: [
+      //       const DrawerHeader(
+      //         decoration: BoxDecoration(
+      //           color: Colors.blue,
+      //         ),
+      //         child: Text('Drawer Header'),
+      //       ),
+      //       ListTile(
+      //         leading: Icon(
+      //           Icons.home,
+      //         ),
+      //         title: const Text('Page 1'),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //         },
+      //       ),
+      //       ListTile(
+      //         leading: Icon(
+      //           Icons.train,
+      //         ),
+      //         title: const Text('Page 2'),
+      //         onTap: () {
+      //           Navigator.pop(context);
+      //         },
+      //       ),
+      //     ],
+      //   ),
+      // ),
       // body: Column(
       //   mainAxisAlignment: MainAxisAlignment.start,
       //   crossAxisAlignment: CrossAxisAlignment.center,
