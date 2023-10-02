@@ -14,29 +14,87 @@ class OpeningHours extends StatefulWidget {
 
 class _OpeningHoursState extends State<OpeningHours> {
   late RiveAnimationController _btnAnimationController;
+  String imagePath = 'assets/images/OpenLib.jpg';
+  String popupMessage = '';
 
   bool isShowSignInDialog = false;
 
   @override
   void initState() {
+    super.initState();
+    checkLibraryStatus();
     _btnAnimationController = OneShotAnimation(
       "active",
       autoplay: false,
     );
-    super.initState();
+  }
+  void checkLibraryStatus() {
+    DateTime now = DateTime.now();
+    int currentHour = now.hour;
+    int currentMinute = now.minute;
+    int dayOfWeek = now.weekday;
+
+    if (dayOfWeek >= 1 && dayOfWeek <= 6) {
+      // Monday to Saturday
+      if ((currentHour == 7 && currentMinute >= 0) ||
+          (currentHour > 7 && currentHour < 22)) {
+        imagePath = 'assets/images/OpenLib.jpg';
+        // popupMessage = 'Library is open';
+        if ((currentHour >= 7 ) && ((currentHour <= 9 && currentMinute <= 30) || currentHour < 9)) {
+          popupMessage = 'Only B1 library is open';
+        } if (((currentHour >= 9 && currentMinute >= 30) || (currentHour > 9)) && ((currentHour <= 16 && currentMinute <= 30) || currentHour < 16)) {
+          popupMessage = 'All libraries are open';
+        } else if (((currentHour >= 16 && currentMinute >= 30) || (currentHour > 16)) && (currentHour <= 22)) {
+          popupMessage = 'Library is open (B1, C3, D5)';
+        }
+      } else {
+        imagePath = 'assets/images/ClosedLib.jpg';
+        popupMessage = 'All libraries are closed';
+      }
+    } else if (dayOfWeek == 7) {
+      // Sunday
+      if ((currentHour >= 9 && currentMinute >= 30 || currentHour > 9) && currentHour < 16) {
+        imagePath = 'assets/images/OpenLib.jpg';
+        popupMessage = 'Library is open (B1, C3, D5)';
+      } else {
+        imagePath = 'assets/images/ClosedLib.jpg';
+        popupMessage = 'Library is closed';
+      }
+    }
+    Future.delayed(const Duration(seconds: 3), () {
+      if (popupMessage.isNotEmpty) {
+        showDialog(
+          context: context,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Library Status'),
+              content: Text(popupMessage),
+              actions: <Widget>[
+                TextButton(
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                  child: Text('OK'),
+                ),
+              ],
+            );
+          },
+        );
+      }
+    });
+    setState(() {}); // Update UI
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        
-        backgroundColor: Color(0x9B1919),
+        backgroundColor: const Color(0xffffffff),
         shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.zero,
+          borderRadius: BorderRadius.circular(10),
         ),
         leading: IconButton(
-          icon: Icon(Icons.arrow_back, color: Colors.black),
+          icon: const Icon(Icons.arrow_back, color: Colors.black),
           onPressed: () => Navigator.of(context).pop(),
         ),
       ),
@@ -85,10 +143,7 @@ class _OpeningHoursState extends State<OpeningHours> {
                             clipBehavior: Clip.antiAlias,
                             child: ClipRRect(
                               borderRadius: BorderRadius.circular(10),
-                              child: const Image(
-                                image: AssetImage("assets/images/OpenLib.jpg"),
-                                fit: BoxFit.fill,
-                              ),
+                              child: Image.asset(imagePath, fit: BoxFit.fill),
                             ),
                           ),
                           // const Spacer(),
@@ -135,7 +190,7 @@ class _OpeningHoursState extends State<OpeningHours> {
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       child: Container(
                                         decoration: BoxDecoration(
-                                          color: Color(0xFFD4EFEB),
+                                          color: const Color(0xFFD4EFEB),
                                           borderRadius: BorderRadius.circular(10)
                                         ),
                                         child: Column(
@@ -404,7 +459,7 @@ class _OpeningHoursState extends State<OpeningHours> {
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       child: Container(
                                         decoration: BoxDecoration(
-                                            color: Color(0xFFD4EFEB),
+                                            color: const Color(0xFFD4EFEB),
                                             borderRadius: BorderRadius.circular(10)
                                         ),
                                         child: Column(
@@ -618,7 +673,7 @@ class _OpeningHoursState extends State<OpeningHours> {
                                       clipBehavior: Clip.antiAliasWithSaveLayer,
                                       child: Container(
                                         decoration: BoxDecoration(
-                                            color: Color(0xFFD4EFEB),
+                                            color: const Color(0xFFD4EFEB),
                                             borderRadius: BorderRadius.circular(10)
                                         ),
                                         child: Column(
@@ -711,11 +766,14 @@ class _OpeningHoursState extends State<OpeningHours> {
                                       ),
                                     ),
                                   ),
+                                  Container(
+                                    height: 30,
+                                  ),
                                 ],
 
                           ),
                             ),
-                          const Spacer(flex: 2),],
+                              const Spacer(flex: 2),],
                           // AnimatedBtn(
                           //   btnAnimationController: _btnAnimationController,
                           //   press: () {
