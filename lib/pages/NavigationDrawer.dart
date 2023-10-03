@@ -122,6 +122,7 @@
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:krc/pages/OpeningHours.dart';
+import 'package:krc/pages/Policies.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -246,7 +247,12 @@ class _MyDrawerState extends State<MyDrawer> {
                   ),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(
+                        builder: (BuildContext context) => policies()));
+                  },
                   leading: const Icon(
                     Icons.rule_rounded,
                     color: Colors.white,
