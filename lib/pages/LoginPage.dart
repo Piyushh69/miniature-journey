@@ -4,10 +4,12 @@ import 'package:krc/pages/RegisterScreen.dart';
 
 
 class LoginScreen extends StatelessWidget {
+  const LoginScreen({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color(0xfff5f5f5),
+      backgroundColor: const Color(0xfff5f5f5),
       body: Padding(
         padding: const EdgeInsets.all(8.0),
         child: SingleChildScrollView(
@@ -16,7 +18,7 @@ class LoginScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
             children: [
-              Padding(
+              const Padding(
                 padding: EdgeInsets.fromLTRB(0, 180, 0, 20),
                 child: Image(
                   image: AssetImage("assets/images/krclogo.png"),
@@ -25,7 +27,7 @@ class LoginScreen extends StatelessWidget {
                   fit: BoxFit.contain,
                 ),
               ),
-              Padding(
+              const Padding(
                 padding: EdgeInsets.fromLTRB(0, 30, 0, 20),
                 child: Align(
                   alignment: Alignment(-0.8, 0.0),
@@ -43,13 +45,13 @@ class LoginScreen extends StatelessWidget {
                 ),
               ),
               Padding(
-                padding: EdgeInsets.symmetric(vertical: 0, horizontal: 25),
+                padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 25),
                 child: TextField(
                   controller: TextEditingController(),
                   obscureText: false,
                   textAlign: TextAlign.start,
                   maxLines: 1,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w400,
                     fontStyle: FontStyle.normal,
                     fontSize: 14,
@@ -58,39 +60,39 @@ class LoginScreen extends StatelessWidget {
                   decoration: InputDecoration(
                     disabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: Color(0x26000000), width: 1),
+                      borderSide: const BorderSide(color: Color(0x26000000), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: Color(0x26000000), width: 1),
+                      borderSide: const BorderSide(color: Color(0x26000000), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: Color(0x26000000), width: 1),
+                      borderSide: const BorderSide(color: Color(0x26000000), width: 1),
                     ),
                     hintText: "Username",
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 14,
                       color: Color(0xff7e7e7e),
                     ),
                     filled: true,
-                    fillColor: Color(0xfff2f2f3),
+                    fillColor: const Color(0xfff2f2f3),
                     isDense: false,
                     contentPadding:
-                        EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(25, 10, 25, 0),
+                padding: const EdgeInsets.fromLTRB(25, 10, 25, 0),
                 child: TextField(
                   controller: TextEditingController(),
                   obscureText: true,
                   textAlign: TextAlign.start,
                   maxLines: 1,
-                  style: TextStyle(
+                  style: const TextStyle(
                     fontWeight: FontWeight.w400,
                     fontStyle: FontStyle.normal,
                     fontSize: 14,
@@ -99,43 +101,46 @@ class LoginScreen extends StatelessWidget {
                   decoration: InputDecoration(
                     disabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: Color(0x26000000), width: 1),
+                      borderSide: const BorderSide(color: Color(0x26000000), width: 1),
                     ),
                     focusedBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: Color(0x26000000), width: 1),
+                      borderSide: const BorderSide(color: Color(0x26000000), width: 1),
                     ),
                     enabledBorder: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(12.0),
-                      borderSide: BorderSide(color: Color(0x26000000), width: 1),
+                      borderSide: const BorderSide(color: Color(0x26000000), width: 1),
                     ),
                     hintText: "Password",
-                    hintStyle: TextStyle(
+                    hintStyle: const TextStyle(
                       fontWeight: FontWeight.w400,
                       fontStyle: FontStyle.normal,
                       fontSize: 14,
                       color: Color(0xff7e7e7e),
                     ),
                     filled: true,
-                    fillColor: Color(0xfff2f2f3),
+                    fillColor: const Color(0xfff2f2f3),
                     isDense: false,
                     contentPadding:
-                        EdgeInsets.symmetric(vertical: 8, horizontal: 12),
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 12),
                   ),
                 ),
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
+                padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                 child: MaterialButton(
                   onPressed: () => {},
-                  color: Color(0xff962326),
+                  color: const Color(0xff962326),
                   elevation: 0,
                   shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.circular(10.0),
-                    side: BorderSide(color: Color(0xff808080), width: 1),
+                    side: const BorderSide(color: Color(0xff808080), width: 1),
                   ),
-                  padding: EdgeInsets.all(16),
-                  child: Text(
+                  padding: const EdgeInsets.all(16),
+                  textColor: const Color(0xffffffff),
+                  height: 40,
+                  minWidth: 140,
+                  child: const Text(
                     "Log in",
                     style: TextStyle(
                       fontSize: 15,
@@ -143,9 +148,6 @@ class LoginScreen extends StatelessWidget {
                       fontStyle: FontStyle.normal,
                     ),
                   ),
-                  textColor: Color(0xffffffff),
-                  height: 40,
-                  minWidth: 140,
                 ),
               ),
               Row(
@@ -153,7 +155,7 @@ class LoginScreen extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisSize: MainAxisSize.max,
                 children: [
-                  Padding(
+                  const Padding(
                     padding: EdgeInsets.fromLTRB(100, 15, 0, 0),
                     child: Text(
                       "Don't have an account ?",
@@ -168,19 +170,22 @@ class LoginScreen extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.fromLTRB(0, 15, 0, 0),
+                    padding: const EdgeInsets.fromLTRB(0, 15, 0, 0),
                     child: MaterialButton(
                       onPressed: () {
                         Navigator.push(context,
                             MaterialPageRoute(builder: (context) => RegisterScreen()));
                       },
-                      color: Color(0x00ffffff),
+                      color: const Color(0x00ffffff),
                       elevation: 0,
-                      shape: RoundedRectangleBorder(
+                      shape: const RoundedRectangleBorder(
                         borderRadius: BorderRadius.zero,
                       ),
-                      padding: EdgeInsets.all(16),
-                      child: Text(
+                      padding: const EdgeInsets.all(16),
+                      textColor: const Color(0xff851313),
+                      height: 10,
+                      minWidth: 10,
+                      child: const Text(
                         "Register here",
                         style: TextStyle(
                           fontSize: 12,
@@ -188,27 +193,27 @@ class LoginScreen extends StatelessWidget {
                           fontStyle: FontStyle.normal,
                         ),
                       ),
-                      textColor: Color(0xff851313),
-                      height: 10,
-                      minWidth: 10,
                     ),
                   ),
                 ],
               ),
               Padding(
-                padding: EdgeInsets.fromLTRB(0, 25, 0, 0),
+                padding: const EdgeInsets.fromLTRB(0, 25, 0, 0),
                 child: MaterialButton(
                   onPressed: () async{
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => GuestHome()));
                     },
-                  color: Color(0x00b8b7b7),
+                  color: const Color(0x00b8b7b7),
                   elevation: 0,
-                  shape: RoundedRectangleBorder(
+                  shape: const RoundedRectangleBorder(
                     borderRadius: BorderRadius.zero,
                   ),
-                  padding: EdgeInsets.all(16),
-                  child: Text(
+                  padding: const EdgeInsets.all(16),
+                  textColor: const Color(0xff355600),
+                  height: 40,
+                  minWidth: 140,
+                  child: const Text(
                     "Continue as a Guest",
                     style: TextStyle(
                       fontSize: 14,
@@ -216,9 +221,6 @@ class LoginScreen extends StatelessWidget {
                       fontStyle: FontStyle.normal,
                     ),
                   ),
-                  textColor: Color(0xff355600),
-                  height: 40,
-                  minWidth: 140,
                 ),
               ),
             ],

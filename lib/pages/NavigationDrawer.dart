@@ -251,7 +251,7 @@ class _MyDrawerState extends State<MyDrawer> {
                     Navigator.pop(context);
                     Navigator.push(context,
                         MaterialPageRoute(
-                        builder: (BuildContext context) => policies()));
+                        builder: (BuildContext context) => Policies()));
                   },
                   leading: const Icon(
                     Icons.rule_rounded,
