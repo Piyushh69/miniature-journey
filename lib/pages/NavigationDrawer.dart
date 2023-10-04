@@ -282,6 +282,20 @@ class _MyDrawerState extends State<MyDrawer> {
                 ListTile(
                   onTap: () {},
                   leading: const Icon(
+                    Icons.call,
+                    color: Colors.white,
+                  ),
+                  title: const Text(
+                    "Contact us",
+                    style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ),
+                ListTile(
+                  onTap: () {},
+                  leading: const Icon(
                     Icons.settings,
                     color: Colors.white,
                   ),

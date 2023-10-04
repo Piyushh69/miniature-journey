@@ -211,60 +211,63 @@ class _PoliciesState extends State<Policies> {
         builder: (BuildContext context) {
           return AlertDialog(
             title: Text(policyName),
-            content: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                  const Center(
-                      child: Text(
-                        'Books',
-                        style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-                      )),
-                  Center(
-                    child: DataTable(
-                      columns: const [
-                        DataColumn(label: Center(
-                          child: Text(
-                              'Days',
-                              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)
-                          ),
+            content: Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                    const Center(
+                        child: Text(
+                          'Books',
+                          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                         )),
-                        DataColumn(label: Center(
-                          child: Text(
-                              'Fine per day',
-                              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)
-                          ),
-                        )),
-                      ],
-                      rows: const [
-                        DataRow(cells: [
-                          DataCell(Center(child: Text('1 - 7'))),
-                          DataCell(Center(child: Text('Rs. 1'))),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Center(child: Text('8 - 14'))),
-                          DataCell(Center(child: Text('Rs. 2'))),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Center(child: Text('15 - 21'))),
-                          DataCell(Center(child: Text('Rs. 3'))),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Center(child: Text('22 - 28'))),
-                          DataCell(Center(child: Text('Rs. 4'))),
-                        ]),
-                        DataRow(cells: [
-                          DataCell(Center(child: Text('29 +'))),
-                          DataCell(Center(child: Text('Rs. 5'))),
-                        ]),
-                      ],
+                    Center(
+                      child: DataTable(
+                        columns: const [
+                          DataColumn(label: Center(
+                            child: Text(
+                                'Days',
+                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)
+                            ),
+                          )),
+                          DataColumn(label: Center(
+                            child: Text(
+                                'Fine per day',
+                                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)
+                            ),
+                          )),
+                        ],
+                        rows: const [
+                          DataRow(cells: [
+                            DataCell(Center(child: Text('1 - 7'))),
+                            DataCell(Center(child: Text('Rs. 1'))),
+                          ]),
+                          DataRow(cells: [
+                            DataCell(Center(child: Text('8 - 14'))),
+                            DataCell(Center(child: Text('Rs. 2'))),
+                          ]),
+                          DataRow(cells: [
+                            DataCell(Center(child: Text('15 - 21'))),
+                            DataCell(Center(child: Text('Rs. 3'))),
+                          ]),
+                          DataRow(cells: [
+                            DataCell(Center(child: Text('22 - 28'))),
+                            DataCell(Center(child: Text('Rs. 4'))),
+                          ]),
+                          DataRow(cells: [
+                            DataCell(Center(child: Text('29 +'))),
+                            DataCell(Center(child: Text('Rs. 5'))),
+                          ]),
+                        ],
+                      ),
                     ),
-                  ),
-                const Padding(
-                  padding: EdgeInsets.all(10.0),
-                  child: Text("Book Bank Books: Rs. 2 per book per day.", style: TextStyle(fontWeight: FontWeight.w700),),
-                )
-              ],
+                  const Padding(
+                    padding: EdgeInsets.all(10.0),
+                    child: Text("Book Bank Books: Rs. 2 per book per day.", style: TextStyle(fontWeight: FontWeight.w700),),
+                  )
+                ],
+              ),
             ),
             actions: [
               ElevatedButton(
