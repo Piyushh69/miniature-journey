@@ -120,9 +120,12 @@
 // }
 
 import 'package:flutter/material.dart';
+import 'package:krc/pages/Faq.dart';
 import 'dart:async';
 import 'package:krc/pages/OpeningHours.dart';
 import 'package:krc/pages/Policies.dart';
+
+import 'TeamMembers.dart';
 
 class MyDrawer extends StatefulWidget {
   const MyDrawer({Key? key}) : super(key: key);
@@ -230,9 +233,10 @@ class _MyDrawerState extends State<MyDrawer> {
                 ListTile(
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.push(context,
-                    MaterialPageRoute(
-                        builder: (BuildContext context) => OpeningHours()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => OpeningHours()));
                   },
                   leading: const Icon(
                     Icons.access_time_rounded,
@@ -249,9 +253,12 @@ class _MyDrawerState extends State<MyDrawer> {
                 ListTile(
                   onTap: () {
                     Navigator.pop(context);
-                    Navigator.push(context,
+                    Navigator.push(
+                        context,
                         MaterialPageRoute(
-                        builder: (BuildContext context) => Policies()));
+                            builder: (BuildContext context) => Policies()
+                        )
+                    );
                   },
                   leading: const Icon(
                     Icons.rule_rounded,
@@ -266,7 +273,15 @@ class _MyDrawerState extends State<MyDrawer> {
                   ),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => Faq()
+                        )
+                    );
+                  },
                   leading: const Icon(
                     Icons.question_mark_sharp,
                     color: Colors.white,
@@ -280,7 +295,13 @@ class _MyDrawerState extends State<MyDrawer> {
                   ),
                 ),
                 ListTile(
-                  onTap: () {},
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => MeetTheTeamPage()));
+                  },
                   leading: const Icon(
                     Icons.call,
                     color: Colors.white,
