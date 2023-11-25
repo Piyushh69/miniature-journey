@@ -121,6 +121,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:krc/pages/Faq.dart';
+import 'package:krc/pages/Locate.dart';
 import 'dart:async';
 import 'package:krc/pages/OpeningHours.dart';
 import 'package:krc/pages/Policies.dart';
@@ -288,6 +289,28 @@ class _MyDrawerState extends State<MyDrawer> {
                   ),
                   title: const Text(
                     "FAQ",
+                    style: TextStyle(
+                        fontSize: 17,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.white),
+                  ),
+                ),
+                ListTile(
+                  onTap: () {
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) => GoogleMapsPage()
+                        )
+                    );
+                  },
+                  leading: const Icon(
+                    Icons.location_on_outlined,
+                    color: Colors.white,
+                  ),
+                  title: const Text(
+                    "Locate",
                     style: TextStyle(
                         fontSize: 17,
                         fontWeight: FontWeight.bold,

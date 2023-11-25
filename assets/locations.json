@@ -1,0 +1,14 @@
+{
+  "offices": [
+    {
+      "address": "Block B1, Chandigarh University",
+      "id": "B1",
+      "image": "",
+      "lat": 30.7704171,
+      "lng": 76.5765698,
+      "name": "Central Library",
+      "phone": "",
+      "region": "India"
+    }
+  ]
+}
